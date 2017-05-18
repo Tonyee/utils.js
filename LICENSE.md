@@ -1,2 +1,3 @@
-@author Tangqy
-@createdate 2017/05/18
+MIT LICENSE
+
+Copyright (c) 2015 - 2099 Tonyee Tang, http://tangqy.com/
