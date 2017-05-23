@@ -502,5 +502,21 @@ function encryptName(name){
     }
 }
 
+/**
+ * 数字千位符格式化
+ * 
+ * @param num 要格式化的数字
+ * @return {Strinf} 加上千位符后的数字字符串
+ */
+function toThousands(num) {
+    var num = (num || 0).toString(), result = '';
+    while (num.length > 3) {
+        result = ',' + num.slice(-3) + result;
+        num = num.slice(0, num.length - 3);
+    }
+    if (num) { result = num + result; }
+    return result;
+}
+
 // TODO
 
