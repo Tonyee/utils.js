@@ -509,41 +509,41 @@ function encryptName(name){
  * @return {String} 加上千位符后的数字字符串
  */
 function toThousands(num) {
-	if(isNaN(num)){
-		return '0';
-	} else {
-		num = Number(num);
-		// 处理负数，防止“-”被千位符切分
-		var isMinus = false;
-		if(num<0){
-			isMinus = true;
-			num = 0-num;
-		}
-		// 处理小数，防止“.”和小数位数字被千位符切分
-		var isDecimals = false, decimalsNum;
-		if(parseInt(num)!=num){
-			isDecimals = true;
-			var arr = (num+'').split('.');
-			num = arr[0];
-			decimalsNum = arr[1];
-		}
-		// 处理正整数位的数字，个位向上3位加一位千位符“,”
-		var result = '';
-		num = (num || 0).toString();
-		while (num.length > 3) {
-			result = ',' + num.slice(-3) + result;
-			num = num.slice(0, num.length - 3);
-		}
-		if (num) { result = num + result; }
-		// 格式化后的正整数位值上还原原数字的“负号”和“小数位”
-		if(isMinus){
-			result = '-'+result;
-		}
-		if(isDecimals){
-			result = result+'.'+decimalsNum;
-		}
-		return result;
-	}
+    if(isNaN(num)){
+        return '0';
+    } else {
+        num = Number(num);
+        // 处理负数，防止“-”被千位符切分
+        var isMinus = false;
+        if(num<0){
+            isMinus = true;
+            num = 0-num;
+        }
+        // 处理小数，防止“.”和小数位数字被千位符切分
+        var isDecimals = false, decimalsNum;
+        if(parseInt(num)!=num){
+            isDecimals = true;
+            var arr = (num+'').split('.');
+            num = arr[0];
+            decimalsNum = arr[1];
+        }
+        // 处理正整数位的数字，个位向上3位加一位千位符“,”
+        var result = '';
+        num = (num || 0).toString();
+        while (num.length > 3) {
+            result = ',' + num.slice(-3) + result;
+            num = num.slice(0, num.length - 3);
+        }
+        if (num) { result = num + result; }
+        // 格式化后的正整数位值上还原原数字的“负号”和“小数位”
+        if(isMinus){
+            result = '-'+result;
+        }
+        if(isDecimals){
+            result = result+'.'+decimalsNum;
+        }
+        return result;
+    }
 }
 
 // TODO
